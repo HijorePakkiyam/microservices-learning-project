@@ -21,4 +21,12 @@ public class InventoryService {
 
         return inventory.getQuantity() >= quantity;
     }
+
+
+    public  Inventory createInventory(
+          Inventory inventory) {
+        return  repository.save(inventory);
+    }
+
+
 }

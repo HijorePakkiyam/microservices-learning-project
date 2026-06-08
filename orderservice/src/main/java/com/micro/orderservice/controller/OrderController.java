@@ -3,10 +3,9 @@ package com.micro.orderservice.controller;
 import com.micro.orderservice.model.Orders;
 import com.micro.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -16,8 +15,14 @@ public class OrderController {
 
     private final OrderService service;
 
-    @PostMapping
-    public Orders placeOrder(
+
+    @GetMapping(value = "/getAllOrders")
+    public List<Orders> getOrders() {
+        return service.getAllOrders();
+    }
+
+    @PostMapping(value = "createOrder")
+    public String placeOrder(
             @RequestBody Orders order) {
 
         return service.createOrder(order);

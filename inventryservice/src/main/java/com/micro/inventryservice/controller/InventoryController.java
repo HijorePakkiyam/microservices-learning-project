@@ -1,11 +1,9 @@
 package com.micro.inventryservice.controller;
 
+import com.micro.inventryservice.model.Inventory;
 import com.micro.inventryservice.service.InventoryService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/inventory")
@@ -20,5 +18,10 @@ public class InventoryController {
             @PathVariable int quantity) {
 
         return service.isInStock(productId, quantity);
+    }
+
+    @PostMapping(value = "/inventory")
+    public Inventory createInventory(@RequestBody Inventory inventory){
+      return service.createInventory(inventory);
     }
 }
