@@ -93,6 +93,32 @@ Client
 6. Open Eureka Dashboard:
    http://localhost:8761
 
+
+## Progress - June 9, 2026
+
+### Completed
+- Eureka Server setup
+- API Gateway routing
+- Product Service
+- Inventory Service
+- Order Service
+- OpenFeign communication
+- Automatic inventory creation on product creation
+- JWT token generation
+- Started JWT validation in API Gateway
+- Started Circuit Breaker implementation using Resilience4j
+
+### Next Steps
+- Fix JWT validation
+- Complete Circuit Breaker fallback
+- Retry Pattern
+- Kafka Integration
+- Config Server
+- ELK Stack
+- Prometheus & Grafana
+
+
+
 ## Author
 
 Hijore P
