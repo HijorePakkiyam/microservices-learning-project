@@ -93,6 +93,53 @@ Client
 6. Open Eureka Dashboard:
    http://localhost:8761
 
+## Progress Update - 10 June 2026
+
+### Completed Today
+
+#### 1. Circuit Breaker Implementation
+- Learned Resilience4j Circuit Breaker concepts.
+- Implemented Circuit Breaker for service-to-service communication.
+- Configured:
+  - Sliding Window
+  - Failure Rate Threshold
+  - Half-Open State
+  - Open State Timeout
+- Tested fallback behavior when Inventory Service is unavailable.
+
+#### 2. Retry Pattern
+- Learned Retry Pattern concepts.
+- Understood how Retry works with Circuit Breaker.
+- Explored scenarios for service recovery.
+
+#### 3. Rate Limiter
+- Studied Rate Limiter pattern.
+- Learned how to protect APIs from excessive requests.
+
+#### 4. Eureka Service Discovery
+- Fixed service registration issues.
+- Verified Product Service, Inventory Service, and Order Service registration.
+
+#### 5. Maven Dependency Cleanup
+- Fixed incorrect Spring Boot dependencies.
+- Corrected test dependencies.
+- Resolved JPA and Maven build issues.
+
+#### 6. Docker Setup
+- Installed WSL2.
+- Installed Docker Desktop.
+- Verified Docker environment for future Kafka setup.
+
+#### 7. Kafka Preparation
+- Studied Kafka architecture:
+  - Producer
+  - Consumer
+  - Broker
+  - Topic
+- Planned Product Service → Kafka → Inventory Service integration.
+
+---
+
 
 ## Progress - June 9, 2026
 
