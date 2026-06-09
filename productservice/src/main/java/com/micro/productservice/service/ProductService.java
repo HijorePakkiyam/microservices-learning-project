@@ -4,7 +4,7 @@ import com.micro.productservice.dto.InventoryRequest;
 import com.micro.productservice.feign.InventoryClient;
 import com.micro.productservice.model.Product;
 import com.micro.productservice.repository.ProductRepository;
-import jakarta.transaction.Transactional;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,13 @@ public class ProductService {
 
     private final InventoryClient inventoryClient;
 
-
-
     public List<Product> getAllProducts() {
         return repository.findAll();
     }
-    @Transactional
+
+    @RateLimiter(
+            name = "productservice",
+            fallbackMethod = "rateLimitFallback")
     public Product save(Product product) {
 
         Product savedProduct = repository.save(product);
@@ -37,5 +38,13 @@ public class ProductService {
         inventoryClient.createInventory(request);
 
         return savedProduct;
+    }
+
+
+    public String rateLimitFallback(
+            Product product,
+            Exception ex) {
+
+        return "Too many requests. Please try again later.";
     }
 }
